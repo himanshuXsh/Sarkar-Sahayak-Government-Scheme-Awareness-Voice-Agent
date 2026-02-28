@@ -320,7 +320,8 @@ QUICK_QUESTIONS = [
 def get_ai_response(user_msg, language):
     try:
         from groq import Groq
-        client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+        api_key = st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY")
+        client = Groq(api_key=api_key)
 
         lang_names = {v: k for k, v in LANGUAGES.items()}
         lang_name = lang_names.get(language, "Hindi")
