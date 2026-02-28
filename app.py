@@ -244,19 +244,11 @@ section[data-testid="stSidebar"] * {
     border-radius: 12px !important;
     border: 1px solid var(--border) !important;
     font-size: 0.9rem !important;
-    background: #FFFFFF !important;
-    color: #1A1A1A !important;
-    caret-color: #FF6B1A !important;
+    background: var(--card-bg) !important;
 }
 .stTextInput > div > div > input:focus {
     border-color: var(--saffron) !important;
     box-shadow: 0 0 0 2px rgba(255,107,26,0.15) !important;
-    color: #1A1A1A !important;
-    background: #FFFFFF !important;
-}
-.stTextInput > div > div > input::placeholder {
-    color: #AAAAAA !important;
-    opacity: 1 !important;
 }
 
 .section-title {
@@ -320,8 +312,7 @@ QUICK_QUESTIONS = [
 def get_ai_response(user_msg, language):
     try:
         from groq import Groq
-        api_key = st.secrets.get("GROQ_API_KEY") or os.getenv("GROQ_API_KEY")
-        client = Groq(api_key=api_key)
+        client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
         lang_names = {v: k for k, v in LANGUAGES.items()}
         lang_name = lang_names.get(language, "Hindi")
