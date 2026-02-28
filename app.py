@@ -244,11 +244,19 @@ section[data-testid="stSidebar"] * {
     border-radius: 12px !important;
     border: 1px solid var(--border) !important;
     font-size: 0.9rem !important;
-    background: var(--card-bg) !important;
+    background: #FFFFFF !important;
+    color: #1A1A1A !important;
+    caret-color: #FF6B1A !important;
 }
 .stTextInput > div > div > input:focus {
     border-color: var(--saffron) !important;
     box-shadow: 0 0 0 2px rgba(255,107,26,0.15) !important;
+    color: #1A1A1A !important;
+    background: #FFFFFF !important;
+}
+.stTextInput > div > div > input::placeholder {
+    color: #AAAAAA !important;
+    opacity: 1 !important;
 }
 
 .section-title {
